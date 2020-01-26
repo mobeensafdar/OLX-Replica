@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Buy & Sell</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="images/favicon.png" type="image/gif" sizes="32x32">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/myCSS.css">
+  <script src="js/jquery.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/moment.min.js"></script>
+  <script src="js/myJs.js"></script>
+  
+  
+</head>
+<body>
+
+    <header>
+      <div class="nav-menu fixed-top">
+        <div class="row">
+          <div class="col-md-12">
+            <nav class="navbar navbar-dark navbar-expand-xl my-navbar">
+              <a class="navbar-brand my-logo" href="index.html"><img src="images/logo.png"></a>
+              <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+              <div class="collapse navbar-collapse" id="navbar">
+                <div class="col-xl-2 nav_P" style="padding-right: 0">
+                  <select class="form-control selectIcon location" id="searchLocation" name="searchLocation">
+                    <option value="AllLocations">All Locations</option>
+                    <option value="Islamabad">Islamabad</option>
+                    <option value="Punjab">Punjab</option>
+                    <option value="Sindh">Sindh</option>
+                    <option value="KPK">KPK</option>
+                  </select> 
+                </div>
+                <div class="col-xl-7 nav_P" style="display: flex">
+                    <select class="form-control form-inline selectIcon category" id="searchCategory" name="searchCategory" style="border-radius: 3px 0 0 3px; border-right: 0; width: auto;">
+                      <option value="AllCategories">All Categories</option>
+                      <option value="TVsElectronics">TVs & Electronics</option>
+                      <option value="RealEstate">Real Estate</option>
+                      <option value="Furniture">Furniture</option>
+                      <option value="Mobiles">Mobiles</option>
+                      <option value="Laptops">Laptops</option>
+                      <option value="Bikes">Bikes</option>
+                      <option value="Cars">Cars</option>
+                    </select> 
+                    <input type="text" class="form-control searchBox" id="searchText" name="searchText" placeholder="Search for products, brands and more">
+                    <button class="searchBtn" id="searchAds"><img src="images/search.png"></button> 
+                </div>
+                <div class="nav_P" style="text-align: center">
+                  <button type="button" id="loginAccountBtn" class="lightBtn login" style="display: none" data-toggle="modal" data-target="#modalForm"></button>
+                  <button type="button" id="gotoPostAds" class="lightBtn postAds">Post Ads</button>
+                </div>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+
+          <nav class="navbar navbar-light bg-light navbar-expand-xl nav-category" style="margin-top: 54px">
+            <a style="font-weight: bold; margin-left: 2.5%;"><img  style="margin-bottom: 1px" src="images/categories.png">ALL CATEGORIES</a>
+            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbar-category" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+            <div class="collapse navbar-collapse" id="navbar-category">
+              <ul class="navbar-nav nav-ml">
+                <li class="nav-item"> <a class="nav-link" style="cursor: pointer" onclick="gotoCategory('Cars')"><img src="images/cars.png">Cars</a> </li>
+                <li class="nav-item"> <a class="nav-link" style="cursor: pointer" onclick="gotoCategory('Bikes')"><img src="images/bikes.png">Bikes</a> </li>
+                <li class="nav-item"> <a class="nav-link" style="cursor: pointer" onclick="gotoCategory('Mobiles')"><img src="images/mobiles.png">Mobiles</a> </li>
+                <li class="nav-item"> <a class="nav-link" style="cursor: pointer" onclick="gotoCategory('Laptops')"><img src="images/laptops.png">Laptops</a> </li>
+                <li class="nav-item"> <a class="nav-link" style="cursor: pointer" onclick="gotoCategory('RealEstate')"><img src="images/realState.png">Real Estate</a> </li>
+                <li class="nav-item"> <a class="nav-link" style="cursor: pointer" onclick="gotoCategory('Furniture')"><img src="images/furniture.png">Furniture</a> </li>
+                <li class="nav-item"> <a class="nav-link" style="cursor: pointer" onclick="gotoCategory('TVsElectronics')"><img src="images/tv.png">TVs & Electronics</a> </li>
+              </ul>
+            </div>
+          </nav>
+          
+          <div class="container">
+            <div class="modal fade" id="modalForm">
+              
+            </div>
+          </div>     
+    </header>
+
+
+    <section style="min-height: calc(100vh - 445px)">
+      <div id="chatContainer" class="container">
+        <div class="loader">
+          <div class="input-group justify-content-center">
+            <div class="sk-folding-cube">
+              <div class="sk-cube1 sk-cube"></div>
+              <div class="sk-cube2 sk-cube"></div>
+              <div class="sk-cube4 sk-cube"></div>
+              <div class="sk-cube3 sk-cube"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!-- Firestore & firestore -->
+<script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-storage.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-messaging.js"></script>
+<script src="js/app.js"></script>
+<script src="js/account.js"></script>
+<script src="js/setupUI.js"></script>
+<script src="js/authentication.js"></script>
+<script src="js/chat.js"></script>    
+
+</body>
+</html>    

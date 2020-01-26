@@ -1,0 +1,12 @@
+{
+    "name": "Let's Sell",
+    "short_name": "Let's Sell",
+    "icons": [{
+      "src": "images/favicon.png",
+        "sizes": "24x24",
+        "type": "image/png"
+      }],
+    "start_url": "index.html",
+    "display": "standalone",
+    "gcm_sender_id": "103953800507"
+}
